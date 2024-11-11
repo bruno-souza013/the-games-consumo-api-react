@@ -1,1 +1,1 @@
-# the-games-consumo-api-react
+Repositório dedicado a atividade de Desenvolvimento Web III
