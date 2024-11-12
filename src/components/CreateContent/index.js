@@ -1,6 +1,6 @@
 import styles from "@/components/CreateContent/CreateContent.module.css";
 
-export const CreateContent = () => {
+const CreateContent = () => {
   return (
     <>
       <div className={styles.createContent}>
@@ -47,3 +47,5 @@ export const CreateContent = () => {
     </>
   );
 };
+
+export default CreateContent;

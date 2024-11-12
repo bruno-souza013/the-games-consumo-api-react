@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Container from "@/components/Container";
-import { Menu } from "@/components/Menu";
 import Footer from "@/components/Footer";
-import { CreateContent} from "@/components/CreateContent";
+import Menu from "@/components/Menu";
+import CreateContent from "@/components/CreateContent";
+
 
 export default function HomePage(){
   return (

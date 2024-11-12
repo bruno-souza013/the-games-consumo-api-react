@@ -1,6 +1,6 @@
 import styles from "@/components/Menu/Menu.module.css"
 
-export const Menu = () => {
+const Menu = () => {
     return (<>
         <nav className={styles.navbar}>
             <div className={styles.logo}>
@@ -26,3 +26,5 @@ export const Menu = () => {
         </nav>
     </>)
 }
+
+export default Menu
