@@ -11,13 +11,13 @@ const Menu = () => {
             <div className={styles.menu}>
                 <ul className={styles.menuItems} id="menuItems">
                     <li>
-                        <a href="#">Home</a>
+                        <a href="/home">Home</a>
                     </li>
                     <li>
-                        <a href="#">Cadastrar jogos</a>
+                        <a href="/create">Cadastrar jogos</a>
                     </li>
                     <li>
-                        <a href="#">Logout</a>
+                        <a href="/">Logout</a>
                     </li>
                 </ul>
             </div>

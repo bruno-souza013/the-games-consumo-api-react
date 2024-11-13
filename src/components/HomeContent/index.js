@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios"
 import styles from "@/components/HomeContent/HomeContent.module.css";
 import Loading from "../Loading";
 
@@ -21,6 +22,17 @@ const HomeContent = () => {
   }, []);
 
   // Função para deletar o jogo
+  const deleteGame = async (gameId) =>{
+    try{
+      const response =  await axios.delete(`http://localhost:4000/game/${gameId}`)
+      if (response.status === 204){
+        alert("Jogo deletado com sucesso!")
+        setGames(games.filter((game) => game._id !== gameId));
+      }
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -34,14 +46,13 @@ const HomeContent = () => {
 
           {/* Componente Loading */}
           <Loading loading={loading} />
-          {/* Não esquecer de fazer as modificações no componente Loading */}
 
           <div className={styles.games} id={styles.games}>
-            {/* Lista de jogos. Começar o map aqui */}
+            {/* Lista de jogos.*/}
             {games.map((game) => (
               <ul className={styles.listGames} key={game.id}>
                 <div className={styles.gameImg}>
-                  <img src="images/game_cd_cover.png" alt="Jogo em estoque" />
+                  <img src="images/image_cd.png" alt="Jogo em estoque" />
                 </div>
                 <div className={styles.gameInfo}>
                   <h3>Título: {game.title}</h3>
@@ -49,7 +60,14 @@ const HomeContent = () => {
                   <li>Ano: {game.year}</li>
                   <li>Preço: {game.price}</li>
 
-                  {/* Inserir aqui o botão de deletar */}
+                  {/* Botão deletar */}
+                  <button onClick={() =>{
+                    const confirmed = window.confirm(`Deseja excluir o jogo ?`)
+                    if (confirmed){
+                      deleteGame(game._id)
+                    }
+                  }}>Deletar Jogo
+                  </button>
                 </div>
               </ul>
             ))}
